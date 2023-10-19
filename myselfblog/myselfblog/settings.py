@@ -24,7 +24,7 @@ with open("E:\Python courses\secret_key.txt") as secret_key:
     SECRET_KEY = secret_key.read()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1']
 
