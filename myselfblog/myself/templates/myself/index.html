@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
-    <title>{{ title }}</title>
+    <title>{{ main_title|default:'Без заголовка' }}</title>
 </head>
 <body>
 <h1>{{ title }}</h1>
-<p>{{ menu }}</p>
-<p>{{ float }}</p>
+<p>{{ menu|join:' | ' }}</p>
+<p>{{ float|add:'1'|divisibleby:'2' }}</p>
 <p>{{ lst }}</p>
 <p>{{ set }}</p>
-<p>{{ dict.k2 }}</p>
+<p>{{ dict.k1 }} {{ dict.k2 }}</p>
 <p>{{ obj.a }}</p>
+<p>{{ "The Main Page"|slugify }}</p>
+<p>{{ url }}</p>
 </body>
 </html>
