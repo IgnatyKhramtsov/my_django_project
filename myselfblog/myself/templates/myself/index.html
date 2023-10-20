@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
-    <title>{{ main_title|default:'Без заголовка' }}</title>
+    <title>{{ title|default:'Без заголовка' }}</title>
 </head>
 <body>
 <h1>{{ title }}</h1>
 <p>{{ menu|join:' | ' }}</p>
-<p>{{ float|add:'1'|divisibleby:'2' }}</p>
-<p>{{ lst }}</p>
-<p>{{ set }}</p>
-<p>{{ dict.k1 }} {{ dict.k2 }}</p>
-<p>{{ obj.a }}</p>
-<p>{{ "The Main Page"|slugify }}</p>
-<p>{{ url }}</p>
+
+<ul>
+    {% for p in posts %}
+    {% if p.is_published%}
+    <li>
+        <h2>{{ p.title }}</h2>
+        <p>{{ p.content }}</p>
+        {% if not forloop.last %}
+        <hr>
+        {% endif %}
+    </li>
+    {% endif %}
+    {% endfor %}
+</ul>
 </body>
 </html>
