@@ -4,17 +4,31 @@ from django.urls import reverse
 from django.template.loader import render_to_string
 
 
-# Create your views here.
+menu = ["О сайте", "Добавить статью", "Обратная связь", "Войти"]
+
+class MyClass:
+     def __init__(self, a, b):
+         self.a = a
+         self.b = b
 
 def index(request):
     # t = render_to_string('myself/index.html')
     # return HttpResponse(t)
     # return HttpResponse("Это страница моего блога! Добро пожаловать!")
-    return render(request, 'myself/index.html')
+    data = {
+        'title': 'Главная страница',
+        'menu': menu,
+        'float': 28.65,
+        'lst': [1, 2, 'dsd', True],
+        'set': {1, 1, 2, 5},
+        'dict': {'k1': 'v1', 'k2': 'v2'},
+        'obj': MyClass(10, 20)
+    }
+    return render(request, 'myself/index.html', context=data)
 
 
 def about(request):
-    return render(request, 'myself/about.html')
+    return render(request, 'myself/about.html', {'title': 'О сайте'})
 
 
 def categories(request, cat_id):
