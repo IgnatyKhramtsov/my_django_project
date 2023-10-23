@@ -26,7 +26,7 @@ def index(request):
 
 
 def about(request):
-    return render(request, 'myself/about.html', {'title': 'О сайте'})
+    return render(request, 'myself/about.html', {'title': 'О сайте', 'menu': menu})
 
 
 def addpage(request):
